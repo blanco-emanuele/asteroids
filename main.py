@@ -9,6 +9,10 @@ def main():
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+    Player.containers = (updatable, drawable)
+
     x = SCREEN_WIDTH / 2
     y = SCREEN_HEIGHT / 2
     player = Player(x, y)
@@ -20,8 +24,9 @@ def main():
                 return
         screen.fill("black")
         
-        player.update(dt)
-        player.draw(screen)
+        updatable.update(dt)
+        for obj in drawable:
+            obj.draw(screen)
 
         elapsed_milliseconds = clock.tick(60)
         dt = elapsed_milliseconds / 1000
