@@ -19,11 +19,12 @@ def main():
         x = SCREEN_WIDTH / 2
         y = SCREEN_HEIGHT / 2
         player = Player(x, y)
+        player.update(dt)
         player.draw(screen)
 
-        pygame.display.flip()
         elapsed_milliseconds = clock.tick(60)
         dt = elapsed_milliseconds / 1000
+        pygame.display.flip()
 
 if __name__ == "__main__":
     main()
