@@ -8,6 +8,10 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    
+    x = SCREEN_WIDTH / 2
+    y = SCREEN_HEIGHT / 2
+    player = Player(x, y)
 
     while(True):
         log_state()
@@ -16,9 +20,6 @@ def main():
                 return
         screen.fill("black")
         
-        x = SCREEN_WIDTH / 2
-        y = SCREEN_HEIGHT / 2
-        player = Player(x, y)
         player.update(dt)
         player.draw(screen)
 
